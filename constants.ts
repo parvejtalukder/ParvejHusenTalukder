@@ -180,7 +180,7 @@ export const EDUCATION: Education[] = [
 ];
 
 export const CONTACT_INFO = {
-    emails: ['parvej@parvejhusentalukder.com'],
+    emails: ['mail@parvejhusentalukder.com'],
     phones: ['+8801716884927'],
     location: 'Sylhet, Bangladesh'
 };
