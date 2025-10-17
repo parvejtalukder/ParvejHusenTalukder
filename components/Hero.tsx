@@ -13,8 +13,8 @@ const Hero: React.FC = () => {
                 alt="Parvej Husen Talukder"
                 className="rounded-full w-40 h-40 md:w-48 md:h-48 mb-8 border-4 border-primary shadow-lg" 
             />
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-              <span className="text-accent">👋</span> Hi, I’m Parvej Husen Talukder
+            <h1 className="text-4xl md:text-4xl font-extrabold mb-4">
+              Hi, I’m Parvej Husen Talukder
             </h1>
             <p className="text-lg md:text-xl text-base-content/80 mb-8 max-w-3xl">
               Competitive Programmer | Web & App Developer | Poet | Digital Entrepreneur
