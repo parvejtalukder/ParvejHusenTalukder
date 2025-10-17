@@ -39,9 +39,9 @@ export const LANGUAGE_COLORS: { [key: string]: string } = {
 export const TOOLS_AND_SKILLS: ToolSkill[] = [
   { name: 'React.js', proficiency: 70 },
   { name: 'TailwindCSS', proficiency: 75 },
-  { name: 'DaisyUI', proficiency: 65 },
-  { name: 'Git', proficiency: 80 },
-  { name: 'GitHub', proficiency: 75 },
+  { name: 'NodeJS', proficiency: 65 },
+  { name: 'Firebase', proficiency: 80 },
+  { name: 'Git & GitHub', proficiency: 75 },
   { name: 'VS Code', proficiency: 85 },
   { name: 'Linux', proficiency: 70 },
   { name: 'MediaWiki', proficiency: 60 },
@@ -180,7 +180,7 @@ export const EDUCATION: Education[] = [
 ];
 
 export const CONTACT_INFO = {
-    emails: ['parvejsunamganj@gamil.com', 'parvej@parvejhusentalukder.com'],
-    phones: ['+8801716884927', '8801540307370'],
+    emails: ['parvej@parvejhusentalukder.com'],
+    phones: ['+8801716884927'],
     location: 'Sylhet, Bangladesh'
 };
