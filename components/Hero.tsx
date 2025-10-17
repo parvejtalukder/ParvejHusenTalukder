@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
             <img 
                 src="https://raw.githubusercontent.com/parvejtalukder/ParvejHusenTalukder/refs/heads/main/images/parvej.png" 
                 alt="Parvej Husen Talukder"
-                className="rounded-full w-40 h-40 md:w-48 md:h-48 mb-8 border-4 border-primary shadow-lg"
+                className="rounded-full w-40 h-40 md:w-48 md:h-48 mb-8 border-4 border-primary shadow-lg" 
             />
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
               <span className="text-accent">👋</span> Hi, I’m Parvej Husen Talukder
