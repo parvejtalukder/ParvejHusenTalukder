@@ -1,32 +1,34 @@
 import React from 'react';
+// Fix: Corrected import paths to be relative.
 import { SOCIAL_LINKS } from '../constants';
+import type { SocialLink } from '../types';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center sm:items-start sm:text-left py-20">
-      <div className="max-w-3xl">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white">
-          Parvej Husen Talukder
-        </h1>
-        <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-cyan-400">
-          Poet, Programmer, and Entrepreneur
-        </h2>
-        <p className="mt-6 text-lg text-gray-400">
-          Blending literature, technology, and entrepreneurship to make knowledge more accessible worldwide. Currently pursuing Computer Science and Engineering at Sylhet International University.
-        </p>
-        <div className="mt-8 flex items-center justify-center sm:justify-start space-x-5">
-          {SOCIAL_LINKS.map(({ name, url, Icon }) => (
-            <a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={name}
-              className="text-gray-400 hover:text-cyan-400 transition-transform duration-300 hover:scale-110"
-            >
-              <Icon className="w-7 h-7" />
+    <section id="hero" className="min-h-screen flex items-center bg-base-200">
+      <div className="container mx-auto px-6 lg:px-8 text-center">
+        <div className="flex flex-col items-center">
+            <img 
+                src="https://picsum.photos/seed/parvej/200/200" 
+                alt="Parvej Husen Talukder"
+                className="rounded-full w-40 h-40 md:w-48 md:h-48 mb-8 border-4 border-primary shadow-lg"
+            />
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+              <span className="text-accent">👋</span> Hi, I’m Parvej Husen Talukder
+            </h1>
+            <p className="text-lg md:text-xl text-base-content/80 mb-8 max-w-3xl">
+              Competitive Programmer | Web & App Developer | Poet | Digital Entrepreneur
+            </p>
+            <div className="flex justify-center space-x-4 mb-8">
+              {SOCIAL_LINKS.map((link: SocialLink) => (
+                <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-primary btn-circle transition-transform duration-300 hover:scale-110">
+                  <link.icon className="w-6 h-6" />
+                </a>
+              ))}
+            </div>
+            <a href="#about" className="btn btn-primary btn-wide transition-transform duration-300 hover:scale-105">
+              Learn More About Me
             </a>
-          ))}
         </div>
       </div>
     </section>

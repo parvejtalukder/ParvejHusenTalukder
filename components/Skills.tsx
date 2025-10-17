@@ -1,61 +1,138 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { SKILL_CATEGORIES } from '../constants';
-import SectionTitle from './SectionTitle';
+import Section from './Section';
+import { motion, AnimatePresence } from 'framer-motion';
+// Fix: Corrected import paths to be relative.
+import { LANGUAGE_STATS, TOOLS_AND_SKILLS } from '../constants';
+import type { LanguageStat, ToolSkill } from '../types';
+
+const SkillBar = ({ name, value, index, color }: { name: string; value: number; index: number; color?: string }) => (
+    <div key={name}>
+      <div className="flex justify-between mb-1">
+        <span className="text-base font-medium">{name}</span>
+        <span className="text-sm font-medium">{value}%</span>
+      </div>
+      <div className="w-full bg-base-300 rounded-full h-3">
+        <div
+          className={`h-3 rounded-full transition-[width] duration-1000 ease-out ${!color ? 'bg-accent' : ''}`}
+          style={{
+            width: 'var(--skill-width, 0%)',
+            backgroundColor: color,
+            transitionDelay: `${index * 100}ms`,
+          }}
+        ></div>
+      </div>
+    </div>
+  );
 
 const Skills: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [isSkillsExpanded, setIsSkillsExpanded] = useState(false);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Set CSS variable on the parent
+          skillsRef.current?.style.setProperty('--skill-width-visible', '1');
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.1, // Animate when 10% of the component is visible
+      }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = skillsRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
 
+  const topSkills = TOOLS_AND_SKILLS.slice(0, 6);
+  const otherSkills = TOOLS_AND_SKILLS.slice(6);
+
+  const renderSkillBar = (skill: LanguageStat | ToolSkill, index: number) => {
+    const isTool = 'proficiency' in skill;
+    const value = isTool ? skill.proficiency : skill.usage;
+    const color = isTool ? undefined : skill.color;
+
+    return (
+        <div key={skill.name}>
+            <div className="flex justify-between mb-1">
+                <span className="text-base font-medium">{skill.name}</span>
+                <span className="text-sm font-medium">{value}%</span>
+            </div>
+            <div className="w-full bg-base-300 rounded-full h-3">
+                <div
+                    className={`h-3 rounded-full transition-[width] duration-1000 ease-out ${isTool ? 'bg-accent' : ''}`}
+                    style={{
+                        width: isVisible ? `${value}%` : '0%',
+                        backgroundColor: color,
+                        transitionDelay: `${index * 100}ms`,
+                    }}
+                ></div>
+            </div>
+        </div>
+    );
+  };
+
+
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className={`py-16 sm:py-20 transition-all duration-1000 ease-in-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-    >
-      <SectionTitle>Technical & Creative Skills</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-        {SKILL_CATEGORIES.map((category) => (
-          <div
-            key={category.title}
-            className="bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-700 hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-1"
-          >
-            <h3 className="text-xl font-bold text-cyan-400 mb-4">{category.title}</h3>
-            <ul className="space-y-2 text-left">
-              {category.skills.map((skill) => (
-                <li key={skill} className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
+    <Section id="skills" title="Languages & Tools">
+      <div ref={skillsRef} className="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 className="text-2xl font-semibold text-center mb-6">Most Used Languages</h3>
+          <div className="space-y-4">
+            {LANGUAGE_STATS.map((lang, index) => renderSkillBar(lang, index))}
           </div>
-        ))}
+        </div>
+        <div>
+          <h3 className="text-2xl font-semibold text-center mb-6">Other Tools & Skills</h3>
+          <div className="space-y-4">
+            {topSkills.map((skill, index) => renderSkillBar(skill, index))}
+          </div>
+
+          <AnimatePresence>
+            {isSkillsExpanded && (
+              <motion.div
+                className="space-y-4 overflow-hidden pt-4"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  visible: { opacity: 1, height: 'auto' },
+                  hidden: { opacity: 0, height: 0 }
+                }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+              >
+                {otherSkills.map((skill, index) => (
+                    renderSkillBar(skill, topSkills.length + index)
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {otherSkills.length > 0 && (
+            <div className="text-center mt-6">
+              <button
+                onClick={() => setIsSkillsExpanded(!isSkillsExpanded)}
+                className="btn btn-outline btn-primary btn-sm"
+              >
+                {isSkillsExpanded ? 'Show Less' : 'Show More'}
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </section>
+    </Section>
   );
 };
 

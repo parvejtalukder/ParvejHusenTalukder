@@ -1,129 +1,186 @@
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  XIcon,
-  InstagramIcon,
-  EmailIcon,
-  CodeforcesIcon,
-} from './components/icons';
-import {
-  TrophyIcon,
-  CodeBracketIcon,
-  BookOpenIcon,
-  GlobeAltIcon,
-  UsersIcon,
-} from './components/icons/feature';
-import { SocialLink, SkillCategory, Project, Achievement, LiteraryHighlight, Activity } from './types';
+import { Github, Linkedin, Twitter, Youtube, Facebook } from 'lucide-react';
+// Fix: Corrected import paths to be relative.
+import type { NavLink, SocialLink, LanguageStat, ProgrammingProfile, Experience, Publication, Project, Honor, Education, ToolSkill } from './types';
 
-export const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'GitHub', url: 'https://github.com/parvej-husen', Icon: GitHubIcon },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/parvej-husen-talukder', Icon: LinkedInIcon },
-  { name: 'X', url: 'https://x.com/parvej_sh', Icon: XIcon },
-  { name: 'Instagram', url: 'https://instagram.com/parvej_sh', Icon: InstagramIcon },
-  { name: 'Email', url: 'mailto:parvej.husen.talukder@gmail.com', Icon: EmailIcon },
-  { name: 'Codeforces', url: 'https://codeforces.com/profile/parvej.husen', Icon: CodeforcesIcon },
+export const NAV_LINKS: NavLink[] = [
+  { name: 'Home', href: '#hero' },
+  { name: 'About', href: '#about' },
+  { name: 'Contact', href: '#contact' },
 ];
 
-export const SKILL_CATEGORIES: SkillCategory[] = [
+export const SOCIAL_LINKS: SocialLink[] = [
+  { name: 'GitHub', href: 'https://github.com/parvejhusentalukder', icon: Github },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/parvejhusentalukder', icon: Linkedin },
+  { name: 'Twitter', href: 'https://twitter.com/parvej_poet', icon: Twitter },
+  { name: 'Facebook', href: 'https://www.facebook.com/parvej.husen.talukder', icon: Facebook },
+  { name: 'YouTube', href: 'https://www.youtube.com/@kavyakishor', icon: Youtube },
+];
+
+export const LANGUAGE_STATS: LanguageStat[] = [
+  { name: 'HTML', usage: 26.46, color: '#e34c26' },
+  { name: 'C', usage: 22.86, color: '#555555' },
+  { name: 'C++', usage: 19.65, color: '#f34b7d' },
+  { name: 'JavaScript', usage: 17.30, color: '#f1e05a' },
+  { name: 'CSS', usage: 10.96, color: '#563d7c' },
+  { name: 'Java', usage: 2.77, color: '#b07219' },
+];
+
+// Fix: Add and export LANGUAGE_COLORS to provide a color mapping for programming languages used in GitHubStats.tsx.
+export const LANGUAGE_COLORS: { [key: string]: string } = {
+  'HTML': '#e34c26',
+  'C': '#555555',
+  'C++': '#f34b7d',
+  'JavaScript': '#f1e05a',
+  'CSS': '#563d7c',
+  'Java': '#b07219',
+  'default': '#A9B3C0'
+};
+
+export const TOOLS_AND_SKILLS: ToolSkill[] = [
+  { name: 'React.js', proficiency: 70 },
+  { name: 'TailwindCSS', proficiency: 75 },
+  { name: 'DaisyUI', proficiency: 65 },
+  { name: 'Git', proficiency: 80 },
+  { name: 'GitHub', proficiency: 75 },
+  { name: 'VS Code', proficiency: 85 },
+  { name: 'Linux', proficiency: 70 },
+  { name: 'MediaWiki', proficiency: 60 },
+  { name: 'WordPress', proficiency: 70 },
+  { name: 'Algorithms', proficiency: 70 },
+  { name: 'Data Structures', proficiency: 75 },
+  { name: 'SEO', proficiency: 65 },
+];
+
+export const PROGRAMMING_PROFILES: ProgrammingProfile[] = [
   {
-    title: 'Languages',
-    skills: ['JavaScript/TypeScript', 'Python', 'C++', 'HTML/CSS'],
+    platform: 'Codeforces',
+    handle: 'parvejhusentalukder',
+    rating: '794 (Newbie)',
+    maxRating: '796',
+    solved: 109,
   },
   {
-    title: 'Frameworks & Libraries',
-    skills: ['React', 'Next.js', 'Node.js', 'Express', 'Tailwind CSS'],
+    platform: 'CodeChef',
+    handle: '1★parvejhusen',
+    rating: '824 (Provisional)',
+    maxRating: '851',
+    solved: 165,
+    contests: 2,
   },
-  {
-    title: 'Databases & Tools',
-    skills: ['MongoDB', 'PostgreSQL', 'Git/GitHub', 'Docker', 'VS Code'],
-  },
-  {
-    title: 'Creative Writing',
-    skills: ['Poetry', 'Rhyme', 'Content Creation', 'Bengali Literature'],
-  },
+];
+
+export const EXPERIENCES: Experience[] = [
+    {
+        role: 'CEO',
+        company: 'VextraWeb',
+        period: 'Jun 2025 – Present',
+        description: [
+            'Leading digital branding and web development projects.',
+            'Specializing in Google Knowledge Panel optimization.',
+        ]
+    },
+    {
+        role: 'Editor & Web Developer',
+        company: 'Kavya Kishor',
+        period: 'Aug 2020 – Present',
+        description: [
+            'Managed content curation and editorial standards.',
+            'Developed and maintained the organization\'s website with a focus on SEO.'
+        ]
+    },
+     {
+        role: 'CEO',
+        company: 'Bhikitia',
+        period: 'Jan – May 2025',
+        description: [
+            'Oversaw strategic growth and content management for a multilingual online encyclopedia.',
+        ]
+    },
+];
+
+export const PUBLICATIONS: Publication[] = [
+    {
+        type: 'Book',
+        title: 'Chorar Jhalak',
+        description: 'A collection of children\'s rhymes.'
+    },
+    {
+        type: 'Award',
+        title: 'Jagrata Literary Award',
+        description: 'Received in 2022 for contributions to literature.'
+    },
+    {
+        type: 'Role',
+        title: 'Founder',
+        description: 'Founded Kavya Kishor International, a literary and cultural platform.'
+    }
 ];
 
 export const PROJECTS: Project[] = [
-  {
-    title: 'Bhikitia',
-    description: 'A multilingual online encyclopedia project aimed at making knowledge universally accessible.',
-    longDescription: 'Bhikitia is a comprehensive multilingual online encyclopedia founded with the mission to democratize knowledge. It supports multiple languages to cater to a global audience, providing free access to a vast repository of information on diverse subjects. The platform is built with scalability and user experience in mind, featuring a robust search engine and an intuitive interface.',
-    tags: ['Next.js', 'React', 'MongoDB', 'Node.js', 'Knowledge Base'],
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1740&auto=format&fit=crop',
-    liveUrl: '#',
-  },
-  {
-    title: 'Khujoweb',
-    description: 'A Bengali search engine and web portal designed to serve the Bengali-speaking community.',
-    longDescription: 'Khujoweb is a dedicated search engine and web portal for the Bengali-speaking population. It aims to provide relevant, localized search results and a suite of web services in the Bengali language. The project involves complex algorithm design for language processing and information retrieval, tailored to the nuances of Bengali.',
-    tags: ['Search Engine', 'NLP', 'Python', 'React', 'Bengali'],
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=1740&auto=format&fit=crop',
-    repoUrl: '#',
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'Personal portfolio website to showcase my projects, skills, and literary works.',
-    longDescription: 'A modern and responsive personal portfolio built with Next.js, TypeScript, and Tailwind CSS. It features a clean design, smooth animations, and detailed sections for my technical projects, skills, achievements, and literary highlights. The site is designed to be a comprehensive showcase of my dual passions for technology and literature.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React'],
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1740&auto=format&fit=crop',
-    liveUrl: '#',
-    repoUrl: '#',
-  },
-];
-
-export const ACHIEVEMENTS: Achievement[] = [
-  {
-    title: 'Literary Awards',
-    description: 'Received multiple awards for poetry and rhymes in national literary competitions.',
-    Icon: TrophyIcon,
-  },
-  {
-    title: 'Programming Contest Finalist',
-    description: 'Ranked as a finalist in several inter-university programming contests.',
-    Icon: CodeBracketIcon,
-  },
-  {
-    title: 'Published Author',
-    description: 'Authored and published books of poetry, contributing to contemporary Bengali literature.',
-    Icon: BookOpenIcon,
-  },
-  {
-    title: 'Entrepreneurial Ventures',
-    description: 'Founded Bhikitia and Khujoweb, platforms aimed at democratizing information.',
-    Icon: GlobeAltIcon,
-  },
-];
-
-export const LITERARY_ACTIVITIES: Activity[] = [
-  {
-    title: 'Founder, Kavya Kishor',
-    description: 'Established and lead a global literary initiative to connect and promote young writers and poets worldwide.',
-    Icon: GlobeAltIcon,
-  },
-  {
-    title: 'Literary Editing & Journaling',
-    description: 'Serve as an editor for literary publications, curating contemporary Bengali and English writing.',
-    Icon: BookOpenIcon,
-  },
-  {
-    title: 'Community Engagement',
-    description: 'Organize and participate in poetry slams, workshops, and literary festivals to foster creative expression.',
-    Icon: UsersIcon,
-  },
-];
-
-
-export const LITERARY_HIGHLIGHTS: LiteraryHighlight[] = [
     {
-        title: 'Published Works',
-        description: 'Authored several poetry books including "Swapner Shohor" and "Ichchhamotir Bake," which have been well-received in the Bengali literary community.'
+        name: 'Customer Support Ticket System',
+        description: 'A system for managing customer support requests, built with a modern frontend stack.',
+        tech: ['React.js', 'TailwindCSS', 'DaisyUI'],
     },
     {
-        title: 'Literary Style',
-        description: 'My writing blends modern sensibilities with traditional poetic forms, often exploring themes of nature, human emotion, and social commentary.'
+        name: 'Emergency Hotline Services',
+        description: 'A web project providing easy access to emergency hotline numbers.',
+        tech: ['HTML', 'TailwindCSS', 'JS'],
     },
     {
-        title: 'Community Involvement',
-        description: 'Actively participate in literary festivals, workshops, and online forums to promote Bengali literature and mentor aspiring writers.'
+        name: 'Green Earth',
+        description: 'A front-end practice project focusing on responsive design and modern CSS.',
+        tech: ['HTML', 'CSS', 'JavaScript'],
+        link: 'https://greenearthb12a6.pages.dev/'
     }
 ];
+
+export const REPOS: Project[] = [
+    {
+        name: 'C-Solutions',
+        description: 'A repository containing solved problems and exercises in the C programming language.',
+        tech: ['C'],
+        link: 'https://github.com/parvejhusentalukder/C-Solutions'
+    },
+    {
+        name: 'CppSolutions',
+        description: 'A collection of solved competitive programming problems in C++.',
+        tech: ['C++'],
+        link: 'https://github.com/parvejhusentalukder/CppSolutions'
+    }
+];
+
+export const HONORS: Honor[] = [
+    {
+        title: 'Champion, Intra-University Programming Contest',
+        issuer: 'SIU ICT Fest 2025'
+    },
+    {
+        title: 'Jagrata Literary Award',
+        issuer: 'Jagrata Sahitya Sanskritik Parishad (2022)'
+    },
+    {
+        title: 'No Code WordPress Development Certificate',
+        issuer: 'UNDP Bangladesh'
+    }
+];
+
+export const EDUCATION: Education[] = [
+    {
+        degree: 'BSc in Computer Science',
+        institution: 'Sylhet International University',
+        period: '2025 – 2028',
+    },
+    {
+        degree: 'Higher Secondary Certificate (HSC)',
+        institution: 'Sylhet Science and Technology College',
+        period: '2024',
+        grade: '4.42/5.00'
+    }
+];
+
+export const CONTACT_INFO = {
+    emails: ['parvejsunamganj@gamil.com', 'parvej@parvejhusentalukder.com'],
+    phones: ['+8801716884927', '8801540307370'],
+    location: 'Sylhet, Bangladesh'
+};

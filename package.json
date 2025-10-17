@@ -1,5 +1,5 @@
 {
-  "name": "parvej-husen-talukder---portfolio",
+  "name": "parvej-husen-talukder-|-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "lucide-react": "^0.546.0",
+    "framer-motion": "^11.5.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

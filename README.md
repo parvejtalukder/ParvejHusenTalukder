@@ -1,21 +1,38 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+---
+title: "Parvej Husen Talukder - Overview"
+author: "Parvej Husen Talukder"
+tags: [Profile, Developer, Programmer, Author, Tech]
+---
 
-# Run and deploy your AI Studio app
+# Parvej Husen Talukder: Innovator, Programmer, and Author
 
-This contains everything you need to run your app locally.
+Parvej Husen Talukder is a passionate **developer, competitive programmer, and author** based in Sylhet, Bangladesh. With a strong foundation in computer science and a keen interest in algorithms, data structures, and modern web technologies, Parvej has contributed to multiple projects and competitions, establishing himself as a versatile tech enthusiast.
 
-View your app in AI Studio: https://ai.studio/apps/drive/11ZlRvHWF-DKC3OdlM0bEpFEUnlGnyrX7
+## Professional Skills
 
-## Run Locally
+Parvej has expertise in a wide array of tools and technologies, including:
 
-**Prerequisites:**  Node.js
+- **Frontend Development:** React.js, TailwindCSS, DaisyUI  
+- **Version Control & Collaboration:** Git, GitHub  
+- **Backend & Web Platforms:** MediaWiki, WordPress  
+- **Programming & Problem Solving:** Algorithms, Data Structures, Competitive Programming  
+- **Other Skills:** SEO optimization, Linux, VS Code  
 
+## Achievements
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-# ParvejHusenTalukder
+- **Competitive Programming:** Ranked in the top 4% in global coding platforms, demonstrating exceptional problem-solving skills and algorithmic thinking.  
+- **Authorship:** Written articles and tutorials on programming, web development, and technology trends.  
+- **Community Engagement:** Active contributor to forums, tech communities, and collaborative projects.  
+
+## Vision
+
+Parvej is dedicated to **building innovative solutions**, sharing knowledge, and mentoring the next generation of programmers. His approach combines technical expertise with creativity, aiming to make technology accessible and impactful for everyone.
+
+## Connect with Parvej
+
+- **GitHub:** [github.com/parvejhusen](https://github.com/parvejtalukder)  
+- **LinkedIn:** [linkedin.com/in/parvejhusen](https://www.linkedin.com/in/parvejhusentalukder)  
+
+---
+
+Parvej Husen Talukder continues to inspire and innovate, blending technology and creativity to solve real-world problems.
