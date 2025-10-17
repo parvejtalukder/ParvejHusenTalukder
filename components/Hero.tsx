@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 lg:px-8 text-center -mt-10">
         <div className="flex flex-col items-center">
             <img 
-                src="https://picsum.photos/seed/parvej/200/200" 
+                src="../images/parvej.png" 
                 alt="Parvej Husen Talukder"
                 className="rounded-full w-40 h-40 md:w-48 md:h-48 mb-8 border-4 border-primary shadow-lg"
             />
