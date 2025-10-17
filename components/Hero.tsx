@@ -6,7 +6,7 @@ import type { SocialLink } from '../types';
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center bg-base-200">
-      <div className="container mx-auto px-6 lg:px-8 text-center">
+      <div className="container mx-auto px-6 lg:px-8 text-center -mt-10">
         <div className="flex flex-col items-center">
             <img 
                 src="https://picsum.photos/seed/parvej/200/200" 
