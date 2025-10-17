@@ -4,13 +4,13 @@ import { SOCIAL_LINKS } from '../constants';
 import type { SocialLink } from '../types';
 
 const Hero: React.FC = () => {
-  return (
+  return ( 
     <section id="hero" className="min-h-screen flex items-center bg-base-200">
-      <div className="container mx-auto px-6 lg:px-8 text-center -mt-10">
+      <div className="container mx-auto px-6 lg:px-8 text-center -mt-20">
         <div className="flex flex-col items-center">
             <img 
                 src="../images/parvej.png" 
-                alt="Parvej Husen Talukder"
+                alt="Parvej Husen Talukder [PHT]"
                 className="rounded-full w-40 h-40 md:w-48 md:h-48 mb-8 border-4 border-primary shadow-lg"
             />
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
